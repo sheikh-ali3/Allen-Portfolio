@@ -107,7 +107,7 @@
                     Optimizing logistics, maximizing efficiency, and ensuring on-time deliveries.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <button onclick="openModal()"
+                    <button onclick="openHireMeModal()"
                         class="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
                         <i class="fas fa-handshake mr-2"></i> Hire Me
                     </button>
@@ -352,7 +352,7 @@
                 achieve better efficiency, higher on-time delivery rates, and increased profitability.
             </p>
             <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <button onclick="openModal()"
+                <button onclick="openHireMeModal()"
                     class="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition transform hover:scale-105">
                     <i class="fas fa-handshake mr-2"></i> Hire Me Now
                 </button>
@@ -455,6 +455,63 @@
         </div>
     </div>
 
+    <!-- Hire Me Modal -->
+    <div id="hireMeModal" class="modal">
+        <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-orange-600">Hire Allen Whales</h3>
+                <button onclick="closeHireMeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="hireMeForm">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">First Name *</label>
+                        <input type="text" name="firstName" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Last Name *</label>
+                        <input type="text" name="lastName" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Company Name *</label>
+                        <input type="text" name="company" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Contact Number *</label>
+                        <input type="tel" name="phone" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                        <input type="email" name="email" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-2">Purpose of Hiring *</label>
+                        <textarea name="purpose" rows="4" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-orange-500"
+                            placeholder="Please describe your needs..."></textarea>
+                    </div>
+                </div>
+                <div class="mt-6 flex gap-4">
+                    <button type="submit"
+                        class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition flex-1">
+                        <i class="fas fa-paper-plane mr-2"></i> Submit Inquiry
+                    </button>
+                    <button type="button" onclick="closeHireMeModal()"
+                        class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Success Message -->
     <div id="successMessage" class="fixed top-20 right-6 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
         <i class="fas fa-check-circle mr-2"></i>
@@ -490,6 +547,17 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Hire Me Modal Functions
+        function openHireMeModal() {
+            document.getElementById('hireMeModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHireMeModal() {
+            document.getElementById('hireMeModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // Form Submission
         document.getElementById('consultationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -510,6 +578,36 @@
 
                 if (result.success) {
                     closeModal();
+                    showSuccessMessage(result.message);
+                    e.target.reset();
+                } else {
+                    showSuccessMessage('Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showSuccessMessage('Something went wrong. Please try again.', 'error');
+            }
+        });
+
+        // Hire Me Form Submission
+        document.getElementById('hireMeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/hire-me', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    closeHireMeModal();
                     showSuccessMessage(result.message);
                     e.target.reset();
                 } else {

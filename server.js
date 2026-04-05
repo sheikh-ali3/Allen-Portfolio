@@ -67,9 +67,25 @@ app.post('/book-consultation', (req, res) => {
     // transporter.sendMail(mailOptions, (error, info) => {
     //     if (error) console.log(error);
     //     else console.log('Email sent: ' + info.response);
-    // });
+    // Simulate success
+    res.json({
+        success: true,
+        message: 'Consultation booked successfully! We will contact you soon.'
+    });
+});
+
+app.post('/hire-me', (req, res) => {
+    const { firstName, lastName, company, phone, email, purpose } = req.body;
     
-    res.json({ success: true, message: 'Consultation booked successfully! We will contact you soon.' });
+    console.log('New Hire Inquiry:', {
+        firstName, lastName, company, phone, email, purpose,
+        timestamp: new Date().toISOString()
+    });
+
+    res.json({
+        success: true,
+        message: 'Thank you! Your hiring inquiry has been received. Allen will contact you shortly.'
+    });
 });
 
 app.listen(PORT, () => {
