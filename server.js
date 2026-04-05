@@ -7,6 +7,17 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Nodemailer Transporter
+const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: process.env.EMAIL_PORT == 465,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
+
 // Middleware
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -74,7 +85,7 @@ app.post('/book-consultation', (req, res) => {
     });
 });
 
-app.post('/hire-me', (req, res) => {
+app.post('/hire-me', async (req, res) => {
     const { firstName, lastName, company, phone, email, purpose } = req.body;
     
     console.log('New Hire Inquiry:', {
@@ -82,10 +93,43 @@ app.post('/hire-me', (req, res) => {
         timestamp: new Date().toISOString()
     });
 
-    res.json({
-        success: true,
-        message: 'Thank you! Your hiring inquiry has been received. Allen will contact you shortly.'
-    });
+    // Prepare email
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.NOTIFICATION_EMAIL,
+        subject: `💼 New Hire Inquiry: ${firstName} ${lastName}`,
+        text: `
+You have a new hiring inquiry from your portfolio website!
+
+--- CONTACT DETAILS ---
+Name: ${firstName} ${lastName}
+Company: ${company}
+Phone: ${phone}
+Email: ${email}
+
+--- PURPOSE OF HIRING ---
+${purpose}
+
+-----------------------
+Submitted at: ${new Date().toLocaleString()}
+`
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({
+            success: true,
+            message: 'Thank you! Your hiring inquiry has been received. Allen will contact you shortly.'
+        });
+    } catch (error) {
+        console.error('Email Error:', error);
+        // Still return success because it's logged to console, 
+        // but the site owner should check their logs if email fails.
+        res.json({
+            success: true,
+            message: 'Thank you! Your inquiry was received (Note: Email alert failed, but data is logged).'
+        });
+    }
 });
 
 app.listen(PORT, () => {
