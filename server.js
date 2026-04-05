@@ -21,6 +21,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/experience', (req, res) => {
+    res.render('experience', {
+        title: 'Experience - Allen Whales'
+    });
+});
+
 app.post('/book-consultation', (req, res) => {
     const { name, email, phone, company, consultationType, preferredDate, preferredTime, message } = req.body;
     
