@@ -38,6 +38,17 @@
             .timeline-line { left: 20px; }
             .timeline-dot { left: 20px; }
         }
+
+        .truck-bg {
+            background-image: url('/assets/hero%20image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #4c1d95 100%);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -61,8 +72,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center justify-center text-white">
-        <div class="container mx-auto px-6 text-center">
+    <section class="hero-gradient min-h-screen pt-24 flex items-center justify-center text-white truck-bg relative">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
             <h1 class="text-5xl md:text-7xl font-bold mb-6">Professional Experience</h1>
             <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
                 3+ years of progressive experience in dispatch management and logistics operations
