@@ -565,7 +565,8 @@
             const data = Object.fromEntries(formData);
 
             try {
-                const response = await fetch('/book-consultation', {
+                data.formType = 'consultation';
+                const response = await fetch('/api/submit-form', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -595,7 +596,8 @@
             const data = Object.fromEntries(formData);
 
             try {
-                const response = await fetch('/hire-me', {
+                data.formType = 'hire';
+                const response = await fetch('/api/submit-form', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
