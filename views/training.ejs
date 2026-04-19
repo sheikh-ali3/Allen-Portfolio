@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Services - Allen Whales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #4c1d95 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .training-bg {
+            background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        footer {
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-2xl font-bold text-blue-900 hover:text-blue-700 transition">AW</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/experience" class="text-gray-700 hover:text-blue-900 transition">Experience</a>
+                    <a href="/training" class="text-blue-900 font-semibold">Training</a>
+                    <a href="/#services" class="text-gray-700 hover:text-blue-900 transition">Services</a>
+                    <a href="/#contact" class="text-gray-700 hover:text-blue-900 transition">Contact</a>
+                </div>
+                <a href="/#contact" class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition">
+                    Book Training
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center text-white training-bg relative">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Logistics Training Services</h1>
+                <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+                    Professional training programs for individuals and companies in the logistics industry. 
+                    Learn from real-world experience and accelerate your career in dispatch, sales, operations, and fleet management.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">500+</div>
+                        <p class="text-lg">Professionals Trained</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">50+</div>
+                        <p class="text-lg">Companies Served</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">95%</div>
+                        <p class="text-lg">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-blue-900 mb-16">Training Programs</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dispatch Training -->
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover border border-gray-200">
+                    <div class="text-blue-900 text-4xl mb-6">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Dispatch Training</h3>
+                    <p class="text-gray-700 mb-6">
+                        Master the art of truck dispatch with comprehensive training in load coordination, 
+                        driver management, and customer service excellence.
+                    </p>
+                    <ul class="text-gray-600 text-sm mb-6">
+                        <li class="mb-2">• Load planning and coordination</li>
+                        <li class="mb-2">• Driver communication</li>
+                        <li class="mb-2">• Route optimization</li>
+                        <li class="mb-2">• Emergency handling</li>
+                        <li class="mb-2">• Compliance and regulations</li>
+                    </ul>
+                    <button onclick="openTrainingModal('Dispatch Training')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Sales Training -->
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover border border-gray-200">
+                    <div class="text-blue-900 text-4xl mb-6">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Sales Training</h3>
+                    <p class="text-gray-700 mb-6">
+                        Develop essential sales skills for the logistics industry including client acquisition, 
+                        relationship building, and revenue growth strategies.
+                    </p>
+                    <ul class="text-gray-600 text-sm mb-6">
+                        <li class="mb-2">• Client prospecting</li>
+                        <li class="mb-2">• Negotiation techniques</li>
+                        <li class="mb-2">• Relationship management</li>
+                        <li class="mb-2">• Sales pipeline management</li>
+                        <li class="mb-2">• Closing strategies</li>
+                    </ul>
+                    <button onclick="openTrainingModal('Sales Training')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Operations Management -->
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover border border-gray-200">
+                    <div class="text-blue-900 text-4xl mb-6">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Operations Management</h3>
+                    <p class="text-gray-700 mb-6">
+                        Learn to manage complex logistics operations, streamline processes, and lead 
+                        high-performing teams in the transportation industry.
+                    </p>
+                    <ul class="text-gray-600 text-sm mb-6">
+                        <li class="mb-2">• Process optimization</li>
+                        <li class="mb-2">• Team leadership</li>
+                        <li class="mb-2">• Performance metrics</li>
+                        <li class="mb-2">• Quality control</li>
+                        <li class="mb-2">• Strategic planning</li>
+                    </ul>
+                    <button onclick="openTrainingModal('Operations Management')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Fleet Management -->
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover border border-gray-200">
+                    <div class="text-blue-900 text-4xl mb-6">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Fleet Management</h3>
+                    <p class="text-gray-700 mb-6">
+                        Comprehensive fleet management training covering vehicle maintenance, cost optimization, 
+                        compliance, and technology integration.
+                    </p>
+                    <ul class="text-gray-600 text-sm mb-6">
+                        <li class="mb-2">• Vehicle maintenance</li>
+                        <li class="mb-2">• Cost control</li>
+                        <li class="mb-2">• Compliance management</li>
+                        <li class="mb-2">• Technology integration</li>
+                        <li class="mb-2">• Performance tracking</li>
+                    </ul>
+                    <button onclick="openTrainingModal('Fleet Management')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Formats -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-blue-900 mb-16">Training Formats</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Individual Training -->
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Individual Training</h3>
+                    <p class="text-gray-700 mb-6">
+                        One-on-one personalized training sessions tailored to your specific career goals 
+                        and current skill level.
+                    </p>
+                    <ul class="text-gray-600 text-left mb-6">
+                        <li class="mb-2">• Personalized curriculum</li>
+                        <li class="mb-2">• Flexible scheduling</li>
+                        <li class="mb-2">• Direct mentorship</li>
+                        <li class="mb-2">• Career guidance</li>
+                    </ul>
+                    <div class="text-3xl font-bold text-blue-900 mb-2">$150</div>
+                    <p class="text-gray-600 mb-6">per course</p>
+                    <button onclick="openTrainingModal('Individual Training')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Corporate Training -->
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Corporate Training</h3>
+                    <p class="text-gray-700 mb-6">
+                        Customized training programs for companies looking to upskill their teams 
+                        and improve operational efficiency.
+                    </p>
+                    <ul class="text-gray-600 text-left mb-6">
+                        <li class="mb-2">• Team-based learning</li>
+                        <li class="mb-2">• Custom curriculum</li>
+                        <li class="mb-2">• On-site or remote</li>
+                        <li class="mb-2">• Post-training support</li>
+                    </ul>
+                    <div class="text-3xl font-bold text-blue-900 mb-2">Custom</div>
+                    <p class="text-gray-600 mb-6">pricing based on needs</p>
+                    <button onclick="openTrainingModal('Corporate Training')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                        Get Quote
+                    </button>
+                </div>
+
+                <!-- Online Courses -->
+                <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Online Courses</h3>
+                    <p class="text-gray-700 mb-6">
+                        Self-paced online courses with video tutorials, downloadable resources, 
+                        and certification upon completion.
+                    </p>
+                    <ul class="text-gray-600 text-left mb-6">
+                        <li class="mb-2">• Learn at your own pace</li>
+                        <li class="mb-2">• Lifetime access</li>
+                        <li class="mb-2">• Video content</li>
+                        <li class="mb-2">• Certification</li>
+                    </ul>
+                    <div class="text-3xl font-bold text-blue-900 mb-2">$100</div>
+                    <p class="text-gray-600 mb-6">per course</p>
+                    <button onclick="openTrainingModal('Online Course')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-blue-900 mb-16">Why Choose My Training?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Real-World Experience</h3>
+                    <p class="text-gray-700">
+                        Learn from someone who has actually worked in the industry and managed 
+                        real logistics operations, not just theoretical knowledge.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Proven Results</h3>
+                    <p class="text-gray-700">
+                        95% success rate with trainees securing better positions or 
+                        improving their company's performance significantly.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="text-blue-900 text-5xl mb-6">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Ongoing Support</h3>
+                    <p class="text-gray-700">
+                        Post-training support and mentorship to ensure you can apply
+                        what you've learned effectively in real-world scenarios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Modal -->
+    <div id="trainingModal" class="modal">
+        <div class="flex items-center justify-center h-full w-full">
+            <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-auto max-h-[90vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-blue-900">Book Training Session</h3>
+                    <button onclick="closeTrainingModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <form id="trainingForm">
+                    <input type="hidden" id="trainingType" name="trainingType">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">City *</label>
+                            <input type="text" name="city" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Country *</label>
+                            <select name="country" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                                <option value="">Select Country</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BR">Brazil</option>
+                                <option value="BN">Brunei</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="SZ">Eswatini</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GR">Greece</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="CI">Ivory Coast</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KP">North Korea</option>
+                                <option value="KR">South Korea</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Laos</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia</option>
+                                <option value="MD">Moldova</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="MK">North Macedonia</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russia</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="SS">South Sudan</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syria</option>
+                                <option value="TW">Taiwan</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TL">Timor-Leste</option>
+                                <option value="TG">Togo</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="US">United States</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VA">Vatican City</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Company/Individual *</label>
+                            <select name="companyType" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                                <option value="">Select Type</option>
+                                <option value="Company">Company</option>
+                                <option value="Individual">Individual</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Training Format *</label>
+                            <select name="format" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                                <option value="">Select Format</option>
+                                <option value="individual">Individual Training</option>
+                                <option value="corporate">Corporate Training</option>
+                                <option value="online">Online Course</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2">Preferred Start Date *</label>
+                            <input type="date" name="startDate" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-semibold mb-2">Training Goals</label>
+                            <textarea name="goals" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900" 
+                                      placeholder="Tell me about your training goals and what you hope to achieve..."></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-4">
+                        <button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition flex-1">
+                            <i class="fas fa-calendar-check mr-2"></i> Book Training Session
+                        </button>
+                        <button type="button" onclick="closeTrainingModal()" class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="fixed top-20 right-6 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hidden">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="successText">Success!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Allen Whales. Professional Dispatch Manager & Trainer. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/allen-whales-4b5b4b1b8/" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fas fa-envelope text-xl"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fas fa-phone text-xl"></i></a>
+                <a href="/" class="hover:text-blue-400 transition"><i class="fas fa-home text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openTrainingModal(trainingType) {
+            document.getElementById('trainingType').value = trainingType;
+            document.getElementById('trainingModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeTrainingModal() {
+            document.getElementById('trainingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Form Submission
+        document.getElementById('trainingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                const response = await fetch('/book-training', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    closeTrainingModal();
+                    showSuccessMessage(result.message);
+                    e.target.reset();
+                } else {
+                    showSuccessMessage('Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showSuccessMessage('Something went wrong. Please try again.', 'error');
+            }
+        });
+        
+        function showSuccessMessage(message, type = 'success') {
+            const messageEl = document.getElementById('successMessage');
+            const textEl = document.getElementById('successText');
+            
+            textEl.textContent = message;
+            messageEl.className = `fixed top-20 right-6 px-6 py-4 rounded-lg shadow-lg ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            messageEl.classList.remove('hidden');
+            
+            setTimeout(() => {
+                messageEl.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[name="startDate"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+    </script>
+</body>
+</html>
