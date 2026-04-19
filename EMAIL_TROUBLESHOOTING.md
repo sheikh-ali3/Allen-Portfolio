@@ -8,7 +8,7 @@
 
 #### Step 1: Enable 2-Step Verification (Required)
 1. Go to https://myaccount.google.com/security
-2. Sign in to your allenwhales.dispatch@gmail.com account
+2. Sign in to your <your-email>@gmail.com account
 3. Click on "2-Step Verification" and turn it ON
 4. Follow the setup process ( you'll need your phone)
 
@@ -24,7 +24,7 @@
 Update your `.env` file with the app password:
 
 ```env
-EMAIL_USER=allenwhales.dispatch@gmail.com
+EMAIL_USER=<your-email>@gmail.com
 EMAIL_PASS=xxxx xxxx xxxx xxxx  (your 16-digit app password)
 ```
 
@@ -46,7 +46,7 @@ Visit: http://localhost:3000/test-env
 **Expected Result**:
 ```json
 {
-  "email_user": "allenwhales.dispatch@gmail.com",
+  "email_user": "<your-email>@gmail.com",
   "email_pass": "SET (hidden)",
   "node_env": "development"
 }
@@ -62,7 +62,7 @@ When you start the server, look for:
 ### Test 3: Send Test Email
 Visit: http://localhost:3000/test-email
 
-This will manually send a test email to allenwhales.dispatch@gmail.com
+This will manually send a test email to <your-email>@gmail.com
 
 **Expected Results**:
 - Success: {"success": true, "message": "Test email sent successfully!"}
@@ -101,7 +101,7 @@ https://ethereal.email
 ## 📋 Debug Checklist
 
 - [ ] .env file exists in project root
-- [ ] EMAIL_USER = allenwhales.dispatch@gmail.com
+- [ ] EMAIL_USER = <your-email>@gmail.com
 - [ ] EMAIL_PASS = 16-digit Gmail App Password (not regular password)
 - [ ] Server restarted after .env changes
 - [ ] Visit /test-env shows email_user is set
@@ -115,7 +115,7 @@ https://ethereal.email
 Look for these messages when server starts:
 ```
 ✅ Email server is ready to send messages
-📧 Using email: allenwhales.dispatch@gmail.com
+📧 Using email: <your-email>@gmail.com
 ```
 
 If you see errors, the .env file isn't loading.
