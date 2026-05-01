@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,23 @@
         .hero-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #4c1d95 100%);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+
         .training-bg {
             background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        
+
         .modal {
             display: none;
             position: fixed;
@@ -37,11 +38,11 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             align-items: center;
             justify-content: center;
         }
-        
+
         footer {
             width: 100% !important;
             margin-left: 0 !important;
@@ -51,6 +52,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white shadow-md z-50">
@@ -77,8 +79,9 @@
             <div class="text-center">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6">Logistics Training Services</h1>
                 <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
-                    Professional training programs for individuals and companies in the logistics industry. 
-                    Learn from real-world experience and accelerate your career in dispatch, sales, operations, and fleet management.
+                    Professional training programs for individuals and companies in the logistics industry.
+                    Learn from real-world experience and accelerate your career in dispatch, sales, operations, and
+                    fleet management.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
                     <div class="text-center">
@@ -110,7 +113,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Dispatch Training</h3>
                     <p class="text-gray-700 mb-6">
-                        Master the art of truck dispatch with comprehensive training in load coordination, 
+                        Master the art of truck dispatch with comprehensive training in load coordination,
                         driver management, and customer service excellence.
                     </p>
                     <ul class="text-gray-600 text-sm mb-6">
@@ -120,7 +123,8 @@
                         <li class="mb-2">• Emergency handling</li>
                         <li class="mb-2">• Compliance and regulations</li>
                     </ul>
-                    <button onclick="openTrainingModal('Dispatch Training')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                    <button onclick="openTrainingModal('Dispatch Training')"
+                        class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
                         Learn More
                     </button>
                 </div>
@@ -132,7 +136,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Sales Training</h3>
                     <p class="text-gray-700 mb-6">
-                        Develop essential sales skills for the logistics industry including client acquisition, 
+                        Develop essential sales skills for the logistics industry including client acquisition,
                         relationship building, and revenue growth strategies.
                     </p>
                     <ul class="text-gray-600 text-sm mb-6">
@@ -142,7 +146,8 @@
                         <li class="mb-2">• Sales pipeline management</li>
                         <li class="mb-2">• Closing strategies</li>
                     </ul>
-                    <button onclick="openTrainingModal('Sales Training')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                    <button onclick="openTrainingModal('Sales Training')"
+                        class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
                         Learn More
                     </button>
                 </div>
@@ -154,7 +159,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Operations Management</h3>
                     <p class="text-gray-700 mb-6">
-                        Learn to manage complex logistics operations, streamline processes, and lead 
+                        Learn to manage complex logistics operations, streamline processes, and lead
                         high-performing teams in the transportation industry.
                     </p>
                     <ul class="text-gray-600 text-sm mb-6">
@@ -164,7 +169,8 @@
                         <li class="mb-2">• Quality control</li>
                         <li class="mb-2">• Strategic planning</li>
                     </ul>
-                    <button onclick="openTrainingModal('Operations Management')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                    <button onclick="openTrainingModal('Operations Management')"
+                        class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
                         Learn More
                     </button>
                 </div>
@@ -176,7 +182,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Fleet Management</h3>
                     <p class="text-gray-700 mb-6">
-                        Comprehensive fleet management training covering vehicle maintenance, cost optimization, 
+                        Comprehensive fleet management training covering vehicle maintenance, cost optimization,
                         compliance, and technology integration.
                     </p>
                     <ul class="text-gray-600 text-sm mb-6">
@@ -186,7 +192,8 @@
                         <li class="mb-2">• Technology integration</li>
                         <li class="mb-2">• Performance tracking</li>
                     </ul>
-                    <button onclick="openTrainingModal('Fleet Management')" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
+                    <button onclick="openTrainingModal('Fleet Management')"
+                        class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition w-full">
                         Learn More
                     </button>
                 </div>
@@ -206,7 +213,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Individual Training</h3>
                     <p class="text-gray-700 mb-6">
-                        One-on-one personalized training sessions tailored to your specific career goals 
+                        One-on-one personalized training sessions tailored to your specific career goals
                         and current skill level.
                     </p>
                     <ul class="text-gray-600 text-left mb-6">
@@ -217,7 +224,8 @@
                     </ul>
                     <div class="text-3xl font-bold text-blue-900 mb-2">$150</div>
                     <p class="text-gray-600 mb-6">per course</p>
-                    <button onclick="openTrainingModal('Individual Training')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                    <button onclick="openTrainingModal('Individual Training')"
+                        class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
                         Get Started
                     </button>
                 </div>
@@ -229,7 +237,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Corporate Training</h3>
                     <p class="text-gray-700 mb-6">
-                        Customized training programs for companies looking to upskill their teams 
+                        Customized training programs for companies looking to upskill their teams
                         and improve operational efficiency.
                     </p>
                     <ul class="text-gray-600 text-left mb-6">
@@ -240,7 +248,8 @@
                     </ul>
                     <div class="text-3xl font-bold text-blue-900 mb-2">Custom</div>
                     <p class="text-gray-600 mb-6">pricing based on needs</p>
-                    <button onclick="openTrainingModal('Corporate Training')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                    <button onclick="openTrainingModal('Corporate Training')"
+                        class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
                         Get Quote
                     </button>
                 </div>
@@ -252,7 +261,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Online Courses</h3>
                     <p class="text-gray-700 mb-6">
-                        Self-paced online courses with video tutorials, downloadable resources, 
+                        Self-paced online courses with video tutorials, downloadable resources,
                         and certification upon completion.
                     </p>
                     <ul class="text-gray-600 text-left mb-6">
@@ -263,7 +272,8 @@
                     </ul>
                     <div class="text-3xl font-bold text-blue-900 mb-2">$100</div>
                     <p class="text-gray-600 mb-6">per course</p>
-                    <button onclick="openTrainingModal('Online Course')" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
+                    <button onclick="openTrainingModal('Online Course')"
+                        class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition w-full">
                         Enroll Now
                     </button>
                 </div>
@@ -282,7 +292,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Real-World Experience</h3>
                     <p class="text-gray-700">
-                        Learn from someone who has actually worked in the industry and managed 
+                        Learn from someone who has actually worked in the industry and managed
                         real logistics operations, not just theoretical knowledge.
                     </p>
                 </div>
@@ -292,7 +302,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Proven Results</h3>
                     <p class="text-gray-700">
-                        95% success rate with trainees securing better positions or 
+                        95% success rate with trainees securing better positions or
                         improving their company's performance significantly.
                     </p>
                 </div>
@@ -325,23 +335,28 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
-                            <input type="text" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <input type="text" name="name" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Email *</label>
-                            <input type="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <input type="email" name="email" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <input type="tel" name="phone" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">City *</label>
-                            <input type="text" name="city" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <input type="text" name="city" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Country *</label>
-                            <select name="country" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <select name="country" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                                 <option value="">Select Country</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AL">Albania</option>
@@ -538,7 +553,8 @@
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Company/Individual *</label>
-                            <select name="companyType" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <select name="companyType" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                                 <option value="">Select Type</option>
                                 <option value="Company">Company</option>
                                 <option value="Individual">Individual</option>
@@ -546,7 +562,8 @@
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Training Format *</label>
-                            <select name="format" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <select name="format" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                                 <option value="">Select Format</option>
                                 <option value="individual">Individual Training</option>
                                 <option value="corporate">Corporate Training</option>
@@ -555,19 +572,23 @@
                         </div>
                         <div>
                             <label class="block text-gray-700 font-semibold mb-2">Preferred Start Date *</label>
-                            <input type="date" name="startDate" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
+                            <input type="date" name="startDate" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900">
                         </div>
                         <div class="md:col-span-2">
                             <label class="block text-gray-700 font-semibold mb-2">Training Goals</label>
-                            <textarea name="goals" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900" 
-                                      placeholder="Tell me about your training goals and what you hope to achieve..."></textarea>
+                            <textarea name="goals" rows="4"
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-900"
+                                placeholder="Tell me about your training goals and what you hope to achieve..."></textarea>
                         </div>
                     </div>
                     <div class="mt-6 flex gap-4">
-                        <button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition flex-1">
+                        <button type="submit"
+                            class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition flex-1">
                             <i class="fas fa-calendar-check mr-2"></i> Book Training Session
                         </button>
-                        <button type="button" onclick="closeTrainingModal()" class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition">
+                        <button type="button" onclick="closeTrainingModal()"
+                            class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition">
                             Cancel
                         </button>
                     </div>
@@ -587,9 +608,12 @@
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2024 Allen Whales. Professional Dispatch Manager & Trainer. All rights reserved.</p>
             <div class="mt-4 flex justify-center space-x-6">
-                <a href="https://www.linkedin.com/in/allen-whales-4b5b4b1b8/" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="#" class="hover:text-blue-400 transition"><i class="fas fa-envelope text-xl"></i></a>
-                <a href="#" class="hover:text-blue-400 transition"><i class="fas fa-phone text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-ali-bpo/" target="_blank"
+                    class="hover:text-blue-400 transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="mailto:allenwhales.dispatch@gmail.com" class="hover:text-blue-400 transition"><i
+                        class="fas fa-envelope text-xl"></i></a>
+                <a href="https://wa.me/17722301781" target="_blank" class="hover:text-blue-400 transition"><i
+                        class="fab fa-whatsapp text-xl"></i></a>
                 <a href="/" class="hover:text-blue-400 transition"><i class="fas fa-home text-xl"></i></a>
             </div>
         </div>
@@ -601,19 +625,19 @@
             document.getElementById('trainingModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
-        
+
         function closeTrainingModal() {
             document.getElementById('trainingModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-        
+
         // Form Submission
         document.getElementById('trainingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
-            
+
             try {
                 data.formType = 'training';
                 const response = await fetch('/api/submit-form', {
@@ -623,9 +647,9 @@
                     },
                     body: JSON.stringify(data),
                 });
-                
+
                 const result = await response.json();
-                
+
                 if (result.success) {
                     closeTrainingModal();
                     showSuccessMessage(result.message);
@@ -637,26 +661,26 @@
                 showSuccessMessage('Something went wrong. Please try again.', 'error');
             }
         });
-        
+
         function showSuccessMessage(message, type = 'success') {
             const messageEl = document.getElementById('successMessage');
             const textEl = document.getElementById('successText');
-            
+
             textEl.textContent = message;
-            messageEl.className = `fixed top-20 right-6 px-6 py-4 rounded-lg shadow-lg ${
-                type === 'success' ? 'bg-green-500' : 'bg-red-500'
-            } text-white`;
+            messageEl.className = `fixed top-20 right-6 px-6 py-4 rounded-lg shadow-lg ${type === 'success' ? 'bg-green-500' : 'bg-red-500'
+                } text-white`;
             messageEl.classList.remove('hidden');
-            
+
             setTimeout(() => {
                 messageEl.classList.add('hidden');
             }, 5000);
         }
-        
+
         // Set minimum date to today
         const dateInput = document.querySelector('input[name="startDate"]');
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
     </script>
 </body>
+
 </html>
